@@ -21,7 +21,7 @@
                     <div class="slider-viewer">
                         <div class="controls">
                             <button class="btn-left"  @click="changeSlide(1)">&lt;</button>
-                            <button class="btn-right" @click="changeSlide(1)">&gt;</button>
+                            <button class="btn-right" @click="changeSlide(-1)">&gt;</button>
                         </div>
                         <div v-for="(objSlide,i) in arrImages"class="slide"  :class="i === activeIndex ? 'active' : ''">
                             <img :src = " 'img/' + objSlide.image" alt="objSlide.title">
@@ -33,7 +33,7 @@
                     </div>
     
                     <div class="thumbs">
-                        <img v-for="(objThumb,i) in arrImages"   :class="i === activeIndex ? 'active' : ''" :src = " 'img/' + objThumb.image" class=".thumb-img">
+                        <img v-for="(objThumb,i) in arrImages"   :class="i === activeIndex ? 'active' : ''" :src = " 'img/' + objThumb.image" class="thumb-img">
                     </div>
                 </div>
     

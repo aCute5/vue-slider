@@ -26,29 +26,24 @@ const app = new Vue(
                 {
                     image: '05.webp',
                     title: "Marvel's Avengers",
-                    text: "Marvel's Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.",
+                    text: "Marvel's Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay."
                 },
             ],
             timeSlider: 1.5 * 1000, 
             direction: 1,
             activeIndex: 0,
             idInterval:0,
-            isAutoplayActive: true,      
+            isAutoplayActive: true,
+            showTitle: false,      
         },
         methods:{
             changeSlide(direction){
-                if (direction > 0) {
+                if (this.activeIndex >= 0 && this.activeIndex <= 4 ) {
                     this.activeIndex++
                 }
-                else if (direction = this.arrImages.length){
-                    direction = 0
-                }
                 else{
-                    this.activeIndex--
+                    this.activeIndex = 0
                 }
             }
-            setInterval(function)(){
-                
-        }
-    
+       }, 
 })
