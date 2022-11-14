@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live coding</title>
+    <!-- VUE LINK -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js" defer></script>
+    <!-- My style -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- my script -->
+    <script src="js/script.js" defer></script>
+
+
+</head>
+<body>
+        <div class="container-blur">
+            <div class="contents">
+                <div class="slider">
+                    <div class="slider-viewer">
+                        <div class="controls">
+                            <button class="btn-left" @click="changeSlide(1)">&lt;</button>
+                            <button class="btn-right" @click= "changeSlide (-1)">&gt;</button>
+                        </div>
+                        <div v-for="(objSlide,i) in arrImages"class="slide"  :class="i === activeIndex ? 'active' : ''">
+                            <img :src = " 'img/' + 'obj.Slide.image'" alt="objSlide.title">
+                            <div class="text">
+                                <h2>{{objSlide.title}}</h2>
+                                <p>{{objSlide.text}}</p>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="thumbs"></div>
+                </div>
+    
+                <div class="btns">
+                    <button class="btn-start-stop" data-functionality="stop">Stop</button>
+                    <button class="btn-invert">Invert</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
