@@ -47,7 +47,8 @@ const app = new Vue(
                     this.activeIndex--
                 }
             }
-            
+            setInterval(function)(){
+                
         }
     
 })
