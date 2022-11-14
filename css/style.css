@@ -107,7 +107,9 @@ body {
 	object-fit: cover;
 	object-position: center;
 	filter: brightness(.4);
+	max-width: 20%;
 }
+
 
 .slider .thumb-img.active {
 	border: 5px solid white;

@@ -40,6 +40,9 @@ const app = new Vue(
                 if (direction > 0) {
                     this.activeIndex++
                 }
+                else if (direction = this.arrImages.length){
+                    direction = 0
+                }
                 else{
                     this.activeIndex--
                 }
@@ -48,47 +51,3 @@ const app = new Vue(
         }
     
 })
-
-const timeSlider = 1.5 * 1000;
-let direction = 1;
-
-const eleSliderViewer = document.querySelector('.slider-viewer');
-const eleSliderThumbs = document.querySelector('.thumbs');
-
-
-// aggiungere click ai thumb
-document.querySelectorAll('.thumb-img').forEach((eleThumb, index) => {
-	eleThumb.addEventListener('click', () => {
-		listEleImg[activeIndex].classList.remove('active');
-		listThumbs[activeIndex].classList.remove('active');
-		activeIndex = index;
-		listEleImg[activeIndex].classList.add('active');
-		listThumbs[activeIndex].classList.add('active');
-		document.body.style.backgroundImage = `url('img/${arrImages[activeIndex].image}')`;
-	})
-});
-
-
-
-document.querySelector('.btn-invert').addEventListener('click', () => direction *= -1); // 1  * -1 = -1; -1 * -1 = 1
-
-document.querySelector('.btn-start-stop').addEventListener('click', function() {
-	if (this.dataset.functionality === 'stop') {
-		console.log('stoppato');
-		clearInterval(idInterval);
-		this.innerHTML = 'Start';
-		this.dataset.functionality = 'start';
-	} else {
-		console.log('avviato');
-		idInterval = setInterval(() => {
-			if (direction > 0) {
-				moveRight();
-			} else {
-				moveLeft();
-			}
-		}, timeSlider);
-		this.innerHTML = 'Stop';
-		this.dataset.functionality = 'stop';
-	}
-})
-

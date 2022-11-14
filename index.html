@@ -20,11 +20,11 @@
                 <div class="slider">
                     <div class="slider-viewer">
                         <div class="controls">
-                            <button class="btn-left" @click="changeSlide(1)">&lt;</button>
-                            <button class="btn-right" @click= "changeSlide (-1)">&gt;</button>
+                            <button class="btn-left"  @click="changeSlide(1)">&lt;</button>
+                            <button class="btn-right" @click="changeSlide(1)">&gt;</button>
                         </div>
                         <div v-for="(objSlide,i) in arrImages"class="slide"  :class="i === activeIndex ? 'active' : ''">
-                            <img :src = " 'img/' + 'obj.Slide.image'" alt="objSlide.title">
+                            <img :src = " 'img/' + objSlide.image" alt="objSlide.title">
                             <div class="text">
                                 <h2>{{objSlide.title}}</h2>
                                 <p>{{objSlide.text}}</p>
@@ -32,13 +32,11 @@
                         </div>
                     </div>
     
-                    <div class="thumbs"></div>
+                    <div class="thumbs">
+                        <img v-for="(objThumb,i) in arrImages"   :class="i === activeIndex ? 'active' : ''" :src = " 'img/' + objThumb.image" class=".thumb-img">
+                    </div>
                 </div>
     
-                <div class="btns">
-                    <button class="btn-start-stop" data-functionality="stop">Stop</button>
-                    <button class="btn-invert">Invert</button>
-                </div>
             </div>
         </div>
     </div>
