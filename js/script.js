@@ -30,20 +30,48 @@ const app = new Vue(
                 },
             ],
             timeSlider: 1.5 * 1000, 
-            direction: 1,
             activeIndex: 0,
             idInterval:0,
-            isAutoplayActive: true,
+            isAutoplayActive: false,
             showTitle: false,      
         },
         methods:{
             changeSlide(direction){
-                if (this.activeIndex >= 0 && this.activeIndex <= 4 ) {
+                if (direction > 0 ) {
                     this.activeIndex++
+                    if(this.activeIndex === this.arrImages.length){
+                        this.activeIndex = 0;
+                    }
                 }
                 else{
-                    this.activeIndex = 0
+                   if (this.activeIndex === 0){
+                    this.activeIndex = this.arrImages.length;
+                   }
+                   this.activeIndex--;
                 }
+            },
+            setActiveIndex(index){
+                this.activeIndex = index
+            },
+            controlAutoplay(){
+                if (this.AutoplayActive){
+                    this.StopAutoplay()
+                }else{
+                    this.StartAutoplay()
+                }
+            },
+            StopAutoplay(){
+                clearInterval(this.idInterval)
+                this.AutoplayActive = false;
+
+            },
+            StartAutoplay(){
+                this.idInterval = setInterval(()=> changeslide(this.direction), this.timeSlider);
+                this.AutoplayActive = true;
+                },
+            InvertAutoplay(){
+                
+            }
             }
        }, 
-})
+);

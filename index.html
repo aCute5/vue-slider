@@ -14,17 +14,18 @@
 
 
 </head>
-<body>
+<body >
+    <div class="background" :style="{backgroundImage:`url('img/${arrImages[activeIndex].image}')`}"></div>
         <div class="container-blur">
             <div class="contents">
                 <div class="slider">
                     <div class="slider-viewer">
                         <div class="controls">
-                            <button class="btn-left"  @click="changeSlide(1)">&lt;</button>
-                            <button class="btn-right" @click="changeSlide(-1)">&gt;</button>
+                            <button class="btn-left"  @click="changeSlide(-1)">&lt;</button>
+                            <button class="btn-right" @click="changeSlide(1)">&gt;</button>
                         </div>
-                        <div v-for="(objSlide,i) in arrImages"class="slide"  :class="i === activeIndex ? 'active' : ''">
-                            <img :src = " 'img/' + objSlide.image" alt="objSlide.title">
+                        <div v-for="(objSlide,i) in arrImages"class="slide" @click="setActiveIndex(i)"  :class="i === activeIndex ? 'active' : ''">
+                            <img :src = " 'img/' + objSlide.image" alt="objSlide.title" >
                             <div class="text">
                                 <h2>{{objSlide.title}}</h2>
                                 <p>{{objSlide.text}}</p>
@@ -39,7 +40,5 @@
     
             </div>
         </div>
-    </div>
-    
 </body>
 </html>
